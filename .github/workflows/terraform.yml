@@ -34,6 +34,14 @@ jobs:
         id: fmt
         run: terraform fmt -check
 
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate
+
+      - name: Terraform Test
+        id: test
+        run: terraform test
+
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request'
