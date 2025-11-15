@@ -1,1 +1,29 @@
+steps:
+# Step 1: Initialize Terraform
+- name: 'hashicorp/terraform:1.8.x'
+  args: ['init', '-backend-config=bucket=your-terraform-state-bucket']
+  entrypoint: 'terraform'
 
+# Step 2: Validate the configuration
+- name: 'hashicorp/terraform:1.8.x'
+  args: ['validate']
+  entrypoint: 'terraform'
+
+# Step 3: Create a Terraform Plan
+- name: 'hashicorp/terraform:1.8.x'
+  args: ['plan', '-out=tfplan']
+  entrypoint: 'terraform'
+
+# Step 4: Apply the Plan (Conditional on a specific branch or trigger)
+- name: 'hashicorp/terraform:1.8.x'
+  # This conditional check ensures 'apply' only runs on the main/master branch
+  # or when a specific variable is set by the trigger.
+  # Replace 'main' with your desired deployment branch
+  id: 'terraform-apply'
+  waitFor: ['-'] # Ensures this step runs last after init and plan (if successful)
+  args: ['apply', '-auto-approve', 'tfplan']
+  entrypoint: 'terraform'
+  # Condition example (optional, must be configured in the Cloud Build Trigger):
+  # NOTE: To make this conditional, you'll generally use trigger substitutions,
+  # but for a simple push to the main branch, a separate trigger is often easier.
+  
