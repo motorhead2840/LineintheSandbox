@@ -8,15 +8,10 @@ terraform {
     }
   }
 
-  # backend "gcs" {
-  #   # Backend configuration will be provided via -backend-config flags or backend.hcl
-  #   # bucket = "your-terraform-state-bucket"
-  #   # prefix = "terraform/state"
-  # }
-
-  # Using local backend for sandbox testing
-  backend "local" {
-    path = "terraform.tfstate"
+  backend "gcs" {
+    # Backend configuration will be provided via -backend-config flags or backend.hcl
+    # bucket = "your-terraform-state-bucket"
+    # prefix = "terraform/state"
   }
 }
 
