@@ -11,6 +11,8 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -33,6 +35,14 @@ jobs:
       - name: Terraform Format Check
         id: fmt
         run: terraform fmt -check
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate
+
+      - name: Terraform Test
+        id: test
+        run: terraform test
 
       - name: Terraform Plan
         id: plan

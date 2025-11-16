@@ -50,6 +50,35 @@ Apply the Terraform configuration:
 terraform apply
 ```
 
+## Testing
+
+This repository includes automated tests for Terraform configurations using the native `terraform test` command.
+
+### Running Tests Locally
+
+To run all tests:
+
+```bash
+terraform test
+```
+
+The tests validate:
+- Variable configuration and defaults
+- Output values match expected inputs
+- Configuration is valid and can be planned
+
+Test files are located in the `tests/` directory:
+- `tests/main.tftest.hcl` - Core configuration tests
+- `tests/variables.tftest.hcl` - Variable validation tests
+
+### Test Coverage
+
+The test suite covers:
+- Required variables (project_id)
+- Default values (region defaults to us-central1)
+- Custom variable overrides
+- Output value correctness
+
 ## CI/CD
 
 This repository includes automated CI/CD pipelines:
