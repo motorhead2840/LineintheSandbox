@@ -13,6 +13,11 @@ terraform {
   #   # bucket = "your-terraform-state-bucket"
   #   # prefix = "terraform/state"
   # }
+
+  # Using local backend for sandbox testing
+  backend "local" {
+    path = "terraform.tfstate"
+  }
 }
 
 provider "google" {
