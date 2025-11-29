@@ -12,6 +12,7 @@
 variable "project_id" {
   description = "The GCP project ID where resources will be created"
   type        = string
+  default     = "sruti"
 
   validation {
     condition     = can(regex("^[a-z][a-z0-9-]{4,28}[a-z0-9]$", var.project_id))
