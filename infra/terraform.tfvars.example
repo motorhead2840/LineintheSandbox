@@ -1,0 +1,46 @@
+# =============================================================================
+# ZenMarket Platform - Example Terraform Variables
+# =============================================================================
+# Copy this file to terraform.tfvars and update with your actual values.
+# DO NOT commit terraform.tfvars to version control as it may contain
+# sensitive information.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Required Variables
+# -----------------------------------------------------------------------------
+
+# Your GCP project ID (required)
+project_id = "your-gcp-project-id"
+
+# -----------------------------------------------------------------------------
+# Optional Variables (defaults shown)
+# -----------------------------------------------------------------------------
+
+# GCP region for regional resources
+region = "us-central1"
+
+# GCP zone for zonal resources
+zone = "us-central1-a"
+
+# Application name (used in resource naming)
+app_name = "zenmarket"
+
+# Deployment environment (dev, staging, or prod)
+environment = "dev"
+
+# Firestore database location
+# See: https://cloud.google.com/firestore/docs/locations
+firestore_location = "us-central"
+
+# Cloud Storage class (STANDARD, NEARLINE, COLDLINE, ARCHIVE)
+storage_class = "STANDARD"
+
+# Enable uniform bucket-level access (recommended)
+storage_uniform_bucket_access = true
+
+# Additional labels for resource organization
+labels = {
+  team    = "platform"
+  project = "zenmarket"
+}
