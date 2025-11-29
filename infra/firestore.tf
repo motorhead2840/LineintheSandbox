@@ -27,7 +27,7 @@ resource "google_firestore_database" "main" {
   point_in_time_recovery_enablement = var.environment == "prod" ? "POINT_IN_TIME_RECOVERY_ENABLED" : "POINT_IN_TIME_RECOVERY_DISABLED"
 
   # Deletion protection - prevent accidental deletion in production
-  deletion_policy = var.environment == "prod" ? "DELETE" : "DELETE"
+  deletion_policy = var.environment == "prod" ? "ABANDON" : "DELETE"
 
   depends_on = [google_project_service.apis]
 }
