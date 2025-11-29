@@ -46,8 +46,8 @@ gcloud auth login
 # Set application default credentials for Terraform
 gcloud auth application-default login
 
-# Set your project
-gcloud config set project YOUR_PROJECT_ID
+# Set your project (default is "sruti")
+gcloud config set project sruti
 ```
 
 ### 2. Configure Variables
@@ -60,8 +60,8 @@ cp terraform.tfvars.example terraform.tfvars
 nano terraform.tfvars  # or your preferred editor
 ```
 
-Required variable to update:
-- `project_id` - Your GCP project ID
+Optional variable to update (default provided):
+- `project_id` - GCP project ID (default: sruti)
 
 Optional variables (defaults provided):
 - `region` - GCP region (default: us-central1)
@@ -183,7 +183,7 @@ infra/
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| `project_id` | GCP project ID | - | Yes |
+| `project_id` | GCP project ID | `sruti` | No |
 | `region` | GCP region | `us-central1` | No |
 | `zone` | GCP zone | `us-central1-a` | No |
 | `app_name` | Application name | `zenmarket` | No |
