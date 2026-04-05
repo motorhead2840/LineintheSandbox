@@ -1,4 +1,4 @@
-# ZenMarket Platform - Infrastructure as Code
+# Sri-OS Platform - Infrastructure as Code
 
 This directory contains Terraform configurations for deploying the ZenMarket GCP web application platform infrastructure.
 
