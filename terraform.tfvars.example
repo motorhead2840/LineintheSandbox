@@ -1,5 +1,6 @@
 # Example terraform.tfvars file
 # Copy this file to terraform.tfvars and fill in your values
+# The default GCP project is "sruti"
 
-project_id = "your-gcp-project-id"
+project_id = "sruti"
 region     = "us-central1"
